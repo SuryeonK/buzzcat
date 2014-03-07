@@ -60,12 +60,37 @@ ChatView.prototype.receiveMessage = function() {
 
 // Main application
 var app = {
+    baseURL: 'http://buzzcat-basaundi.rhcloud.com/api',
+    REQUEST: function(type, url, data, success, fail){
+        $.ajax({
+            type: type,
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            dataType: 'json',
+            url: baseURL + url,
+        }).done(success).fail(fail);
+    },
+    GET: function(url, success, fail){
+        this.REQUEST('GET', url, data, success, fail);
+    },
+    POST: function(url, data, success, fail){
+        this.REQUEST('POST', url, data, success, fail);
+    },
+    PUT: function(url, data, success, fail){
+        this.REQUEST('PUT', url, data, success, fail);
+    },
+    DELETE: function(url, success, fail){
+        this.REQUEST('DELETE', url, data, success, fail);
+    },
+    
     sendMessage: function(txt, success, fail){
         // this.location_id
         // this.my_profile_id
         // txt
         // AJAX
-		success();
+        this.POST('/chats/{{location_id}}', {
+            type: 'text', content: txt
+            }, success, fail);
     },
     
     // Create a profile given the data
