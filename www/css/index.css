@@ -123,3 +123,6 @@ li.comp.mine>.msg>.bubble:before{ display: none; }
 	padding: 1em;
 	box-sizing: border-box;
 }
+article>section{
+	box-sizing: border-box;
+}
