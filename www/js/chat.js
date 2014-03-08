@@ -4,7 +4,7 @@
 function ChatView(app, element){
     this.app = app;
     this.element = element;
-	this.toolbar = $(element).next();
+	this.toolbar = $(element).find('.chatbar');
 	// Templates
 	this.msg_template = Handlebars.compile($('#message-template').html());
 	// Bind events

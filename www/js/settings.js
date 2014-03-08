@@ -8,7 +8,7 @@ function ProfileView(app, element){
 ProfileView.prototype.loadProfile = function(){
 	$(this.element).find('#myname').val(this.app.my_profile.name);
 	$(this.element).find('#mymessage').val(this.app.my_profile.message);
-	$(this.element).find('#mypicture').attr('src', this.app.my_profile.picture);
+	$(this.element).find('#mypicture').attr('src', 'img/'+this.app.my_profile.picture +'.png');
 }
 
 ProfileView.prototype.saveProfile = function(){

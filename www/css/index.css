@@ -115,3 +115,11 @@ li.comp.mine>.msg>.bubble:before{ display: none; }
 	height: auto;
 	max-height: 6em;
 }
+.chatbar {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 1em;
+	box-sizing: border-box;
+}

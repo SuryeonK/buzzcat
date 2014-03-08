@@ -21,6 +21,7 @@
     });
 
     $('.button').on('click', function(){
+        if(!$(this).data('goto')) return;
         $.UIGoToArticle('#' + $(this).data('goto'));
     });
 }());
