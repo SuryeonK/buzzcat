@@ -22,6 +22,7 @@ ChatView.prototype.sendMessage = function(){
 	var textarea = $(this.toolbar).find('.form>textarea');
     var txt = textarea.val();
     textarea.val(''); // Reset field
+    textarea.get(0).style.height = '';
 	
     // HTML add markup
 	var chatroom = $(
