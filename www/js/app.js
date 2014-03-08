@@ -52,8 +52,8 @@ var app = {
         this.POST('/profiles', profile, function(){}, function(){});
     },
     loadProfile: function(){
-        this.my_profile = this.db.col('profiles').findOne({_id: localStorage.my_profile_id});
-    },
+        this.my_profile = this.db.col('profiles').findOne({_id: localStorage.my_profile_id}) || {};
+	},
 	saveProfile: function(){
 	    this.db.col('profiles').update({_id: this.my_profile._id}, this.my_profile);
 	},

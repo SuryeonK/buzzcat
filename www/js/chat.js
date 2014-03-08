@@ -1,4 +1,54 @@
+// Emoticons
 
+function Emoticons() {
+	// Content for Popovers:
+	var popoverContent = '<ul class="list"><li><h3><image src="./img/emoticons/icon_smile.png"></image></h3></li><li><h3><image src="./img/emoticons/icon_sad.png"></image></h3></li></ul>';
+	 
+	// Callback for Popovers:
+	var fillPopover = function(popover) {
+	  // Populate Popover with content:
+	  $('.show-popover').append(popoverContent);
+	  popoverEventHandler();
+	};
+
+	var popoverEventHandler = function() {
+	  // Attach event to catch user interaction.
+	  // Use singletap to allow user to scroll content.
+	  $('.show-popover').on('singletap', function(e) {
+		var results;
+		if (this.id === 'showPopover') {
+		  results = '#fruitsChoice';
+		}
+		
+		
+		
+		var listItem;
+		if (e.target.nodeName === 'LI') {
+		  $(results).html(e.target.textContent.trim());
+		} else {
+		  listItem = $(e.target).closest('li')[0];
+		  $(results).html(listItem.textContent.trim());
+		}
+		$.UIPopoverClose();
+	  });
+	};
+
+	// Initialize Popover:
+	$('#showPopover').UIPopover({
+	  id: 'showPopover', 
+	  title: "Emoticons", 
+	  callback: fillPopover
+	});
+}
+
+// Replace image into characters
+function ReplaceEmoticons(element) {
+	// get id of the image
+
+	// compare the id with characters and replace it
+
+	
+}
 
 // Chat view controller
 function ChatView(app, element){
@@ -44,6 +94,7 @@ ChatView.prototype.sendMessage = function(){
 		// chatroom.append('.... ok');
     }, function(){
         // Fail
+		chatroom.append('sending fail');
     });
 }
 ChatView.prototype.receiveMessage = function() {
