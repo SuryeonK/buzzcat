@@ -46,7 +46,9 @@ body {
 	background-color: transparent;
 	border: 0;
 }
-
+li.comp>.msg{
+	width: 100%;
+}
 li.comp>.msg>.bubble{
 	float: left;
 	word-break: break-all;
@@ -67,20 +69,45 @@ li.comp.mine>.msg>.bubble{
 	text-align: right;
     margin-right: 30px;
 }
-
+li.comp>.msg>.bubble>.author{
+	font-weight: bold;
+}
+li.comp.mine>.msg>.bubble>.author{ display: none; }
+li.comp>aside>img{
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+}
 li.comp>.msg>.bubble:after 
 {
 	content: "";
 	position: absolute;
-	top: 12px;
+	top: 6px;
 	right: -30px;
 	border-style: solid;
 	border-width: 12px 0 12px 30px;
+	border-color: transparent #ffffff;
+	display: none;
+	width: 0;
+	z-index: 1;
+}
+li.comp.mine>.msg>.bubble:after{
+	display: block;
+}
+li.comp>.msg>.bubble:before 
+{
+	content: "";
+	position: absolute;
+	top: 6px;
+	left: -30px;
+	border-style: solid;
+	border-width: 12px 30px 12px 0;
 	border-color: transparent #ffffff;
 	display: block;
 	width: 0;
 	z-index: 1;
 }
+li.comp.mine>.msg>.bubble:before{ display: none; }
 .form.grid{
 	width: 100%;
 }
