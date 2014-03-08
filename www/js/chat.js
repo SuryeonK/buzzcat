@@ -13,19 +13,6 @@ function ChatView(app, element){
 ChatView.prototype.sendMessage = function(){
     //get current time with am or pm
 	var date = new Date();
-	var hour = date.getHours();
-	hour = (hour + 24) % 24;
-	var mid = 'AM';
-	if (hour == 0) 
-		hour = 12;
-	else if (hour > 12) {
-		hour = hour % 12;
-		mid = 'PM';
-	}
-	var min = date.getMinutes();
-	if (min < 10) {
-		min = '0' + min;
-	}
 	
 	// Get data from form
 	var textarea = $(this.toolbar).find('.form>textarea');
@@ -38,7 +25,7 @@ ChatView.prototype.sendMessage = function(){
 	// check whether txt is empty
 	if (txt.length > 0) {
 		chatroom.append(this.msg_template({
-			time: hour + ":" + min + " " + mid,
+			time: date,
 			text: txt,
 			author: 'me',
 			mine: true

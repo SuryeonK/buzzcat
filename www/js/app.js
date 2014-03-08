@@ -8,7 +8,7 @@ var app = {
             contentType: 'application/json',
             data: JSON.stringify(data),
             dataType: 'json',
-            url: baseURL + url,
+            url: this.baseURL + url,
         }).done(success).fail(fail);
     },
     GET: function(url, success, fail){
@@ -25,13 +25,15 @@ var app = {
     },
     
     sendMessage: function(txt, success, fail){
+        var msg = {
+            type: 'text',
+            content: txt,
+            author: this.my_profile_id,
+            time: new Date()
+        };
         // this.location_id
-        // this.my_profile_id
-        // txt
         // AJAX
-        this.POST('/chats/{{location_id}}', {
-            type: 'text', content: txt
-            }, success, fail);
+        this.POST('/chats/{{location_id}}', msg, success, fail);
     },
     
     // Create a profile given the data

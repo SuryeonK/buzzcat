@@ -47,7 +47,7 @@
 				    <div class="bubble">
 			            <div class="author">{{author}}</div>
 				        {{text}}
-				        <div class="time">{{time}}</div>
+				        <div class="time">{{formatDate time}}</div>
 				    </div>
 				</div>
 				{{#if mine}}<aside><img src="./img/profile_picture.png" alt="my_profile" /></aside>{{/if}}
@@ -60,7 +60,9 @@
         <script type="text/javascript" src="js/vendor/chui.min.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/vendor/chongo.production.js"></script>
+        <script type="text/javascript" src="js/config.js"></script>
         <script type="text/javascript" src="js/chat.js"></script>
+        <script type="text/javascript" src="js/map.js"></script>
         <script type="text/javascript" src="js/settings.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript">
