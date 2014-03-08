@@ -50,8 +50,11 @@ var app = {
         var con = new Chongo.Connection(localStorage);
         this.db = con.db('buzzCat');
         
-        // Show view depending on status
+        // Run this application in the background also after exiting
+        window.plugin.backgroundMode.enable();
+        
         this.initializeViews();
+        // Show view depending on status
         
         // Tests
         this.chatView.sendMessage('aaaa');
