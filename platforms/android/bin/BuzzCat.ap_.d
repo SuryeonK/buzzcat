@@ -22,4 +22,7 @@
 /home/ander/Dropbox/APPATHON/buzzcat/platforms/android/assets/www/css/index.css \
 /home/ander/Dropbox/APPATHON/buzzcat/platforms/android/assets/www/js/index.js \
 /home/ander/Dropbox/APPATHON/buzzcat/platforms/android/assets/www/js/vendor \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/assets/www/js/vendor/chui-android.min.css \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/assets/www/js/vendor/jquery.min.js \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/assets/www/js/vendor/chui.min.js \
 /home/ander/Dropbox/APPATHON/buzzcat/platforms/android/bin/AndroidManifest.xml \
