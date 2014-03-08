@@ -20,4 +20,7 @@
 	    return hour + ":" + min + " " + mid;
     });
 
+    $('.button').on('click', function(){
+        $.UIGoToArticle('#' + $(this).data('goto'));
+    });
 }());
