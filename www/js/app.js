@@ -28,7 +28,7 @@ var app = {
         var msg = {
             type: 'text',
             content: txt,
-            author: this.my_profile_id,
+            author: this.my_profile._id,
             time: new Date()
         };
         // this.location_id
@@ -51,6 +51,12 @@ var app = {
         this.my_profile = profile;
         this.POST('/profiles', profile, function(){}, function(){});
     },
+    loadProfile: function(){
+        this.my_profile = this.db.col('profiles').findOne({_id: localStorage.my_profile_id});
+    },
+	saveProfile: function(){
+	    this.db.col('profiles').update({_id: this.my_profile._id}, this.my_profile);
+	},
     
     // Application Constructor
     initialize: function() {
@@ -63,20 +69,24 @@ var app = {
         // Run this application in the background also after exiting
         //window.plugin.backgroundMode.enable();
         
-        this.initializeViews();
         // Show view depending on status
+		this.loadProfile();
+        this.initializeViews();
+		
+		// Watch position
         navigator.geolocation.watchPosition(
             $.proxy( this.newPosition, this),
             $.proxy( this.noPosition, this),
             {frequency: 5000, maximumAge: 60000, timeout: 1000}
-        ); 
-        
-        // Tests
-        //this.chat_view.sendMessage('aaaa');
+        );
     },
     
     initializeViews: function(){
         this.chat_view = new ChatView(this, document.getElementById('chat_view'));
+        this.settings_view = new SettingsView(this, document.getElementById('settings_view'));
+        this.notifications_view = new NotificationsView(this, document.getElementById('notifications_view'));
+        this.profile_view = new ProfileView(this, document.getElementById('profile_view'));
+        this.map_view = new MapView(this, document.getElementById('map_view'));
     },
     
     noPosition: function(error){
