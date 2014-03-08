@@ -13,7 +13,30 @@
         <title>BuzzCat</title>
     </head>
     <body>
-        <nav class="current">
+        
+        <nav class="current"><img height="40" width="40" src="./img/logo.png"></img><h4>Buzz Cat</h4></nav>
+		<article id="welcome_view" class="current">
+			<section>
+			  <div class='horizontal'  style="float: left;">
+				<div class='segmented'>
+				  <!--<a class='button selected' style="display: none;">Main</a>-->
+				  <a class='button' href="settings.html">Settings</a>
+				  <a class='button' href="around.html">People Around</a>
+				</div>
+			  </div>
+			  <br /><br /><br />
+			  <div align = 'center'>
+				<img  src="./img/logo.png" alt="Buzz Cat App">
+			  </div>
+			  <!-- <a class='button' style="float: center;" href="chat.html">Join Chat</a> -->
+			  <br /><br />
+			  <div align = 'center'>
+				 <a class='button' style="width: 15em;  height: 5em; text-align:center;" href="chat.html">Join Chat</a>
+			  </div>
+			</section>
+		</article>
+		
+        <nav>
             <a class='button back'>Back</a>
             <h1>Chat</h1>
             <div class='horizontal'>
@@ -25,7 +48,7 @@
                 </div>
             </div>
         </nav>
-		<article id='chat_view' class='current'>
+		<article id="chat_view">
 			<section>  
 			  <ul class="chatroom list"></div>
 			</section>
@@ -42,9 +65,200 @@
         <nav>
             <img id="mypicture" height="40" width="40" src="./img/logo.png"></img><h4>Buzz Cat</h4>
         </nav>
-        <article class="current" id="map_view">
+        <article id="map_view">
             <section id="map"></section>
         </article>
+        
+        <nav>Settings</nav>
+		<article id="settings_menu_view">
+			<section>
+				<div class='horizontal'  style="float: left;">
+					<div class='segmented'>
+					  <!--<a class='button selected' style="display: none;">Main</a>-->
+					  <a class='button' href="welcome.html">Main Window</a>
+					  <a class='button' href="around.html">People Around</a>
+					</div>
+				</div>
+				<br /><br /><br />
+				<div id='setting1' class="list">
+					<ul class="list">
+						<li class='comp' onclick="location.href = 'profile.html'"><div><h4>Profile </h4>
+						<br />Modify your account information</div></li>
+					</ul>
+					<ul class='list'>	
+						<li class='comp' onclick="location.href = 'settings2.html'"><div><h4>Privacy</h4>
+						<br />Modify your preferences to join chats</div></li>
+					</ul>
+					<ul class='list'>	
+						<li class='comp' onclick="location.href = 'settings3.html'"><div><h4>Notifications</h4>
+						<br />Modify notification settings</div></li>
+					</ul>					
+				</div>
+			</section>
+		</article>
+		
+		
+        <nav>Profile</nav>
+		<article id="profile_view">
+			<section>
+				<div class='horizontal'  style="float: left;">
+					<div class='segmented'>
+					  <!--<a class='button selected' style="display: none;">Main</a>-->
+					  <a class='button' href="settings.html">Settings</a>
+					  <a class='button' href="around.html">People Around</a>
+					</div>
+				</div>
+				<br /><br /><br />
+				<div id="toggle-panels">
+					<div id='switches'>
+					  <h2>Profile</h2>
+					  <ul class='list'>
+						<li class='comp'>
+						  <img id="mypicture" height="100" width="100" src="">
+						  <aside>
+							<a class='button' id='btnPicture'>Change</a>
+						  </aside>
+						</li>
+					  </ul>
+					  <ul class='list'>
+						<li class='comp'>
+						  <div>
+							<h4>User name </h4>
+						  </div>
+						  <aside>
+						  <textarea cols = "15" rows = "1" id="myname"></textarea>
+						  </aside>
+						</li>
+					  </ul>
+					  <ul class='list'>
+						<li class='comp'>
+						  <div>
+							<h4>Personal Message</h4>
+						  </div>
+						  <aside>
+						  <textarea border = "none" cols = "15" rows = "2" id="mymessage"></textarea>
+						  </aside>
+						</li>
+					  </ul>
+					</div>
+					</div>
+					<br /><br />
+					<div align = 'center'>
+					  <a class='button' id='btnProfile'>Accept</a>
+					  <a class='button' id='btnBack'>Back</a>		
+					</div>
+			</section>
+		</article>
+		
+		
+        <nav class="current">Settings</nav>
+		<article id="settings_view">
+			<section>
+				<div class='horizontal'  style="float: left;">
+					<div class='segmented'>
+					  <!--<a class='button selected' style="display: none;">Main</a>-->
+					  <a class='button' href="settings.html">Settings</a>
+					  <a class='button' href="around.html">People Around</a>
+					</div>
+				</div>
+				<br /><br /><br />
+				<div id="toggle-panels">
+					<div id='switches'>
+					  <h2>Privacy</h2>
+					  <ul class='list'>
+						<li class='comp'>
+						  <div>
+							<h4>Confirmation required to join </h4>
+						  </div>
+						  <aside>
+							<span class="switch">
+						  <input type="checkbox" id="autoconnect" value="autoconnect" name="autoconnectSwitch">
+						</span>
+					  </aside>
+						</li>
+					  </ul>
+					  <ul class='list'>
+						<li class='comp'>
+						  <div>
+							<h4>Show my location</h4>
+						  </div>
+						  <aside>
+						<span class="switch">
+						  <input type="checkbox" id="showlocation" name="showlocationSwitch">
+						</span>
+					  </aside>
+						</li>
+					  </ul>
+					  <ul class='list'>
+						<li class='comp'>
+						  <div>
+							<h4>Allow private messages</h4>
+						  </div>
+						   <aside>
+						<span class="switch">
+						  <input type="checkbox" id="privatemsg" name="privateSwitch">
+						</span>
+					  </aside>
+						</li>
+					  </ul>      
+					</div>
+					</div>
+					<br /><br />
+					<div align = 'center'>
+					  <a class='button' id='btnSettings'>Accept</a>
+					  <a class='button' id='btnBack'>Back</a>	
+					</div>
+			 </section>
+		</article>
+		
+		
+        <nav class="current">Settings</nav>
+		<article id="notifications_view">
+			<section>
+				<div class='horizontal'  style="float: left;">
+					<div class='segmented'>
+					  <!--<a class='button selected' style="display: none;">Main</a>-->
+					  <a class='button' href="settings.html">Settings</a>
+					  <a class='button' href="around.html">People Around</a>
+					</div>
+				</div>
+				<br /><br /><br />
+				<div id="toggle-panels">
+					<div id='switches'>
+					  <h2>Notifications</h2>
+					  <ul class='list'>
+						<li class='comp'>
+						  <div>
+							<h4>Vibration </h4>
+						  </div>
+						  <aside>
+							<span class="switch">
+						  <input type="checkbox" id="vibration" name="vibrationSwitch">
+						</span>
+					  </aside>
+						</li>
+					  </ul>
+					  <ul class='list'>
+						<li class='comp'>
+						  <div>
+							<h4>Sound</h4>
+						  </div>
+						  <aside>
+						<span class="switch">
+						  <input type="checkbox" id="sound" name="soundSwitch">
+						</span>
+					  </aside>
+						</li>
+					  </ul>					 
+					</div>
+					</div>
+					<br /><br />
+					<div align = 'center'>
+					  <a class='button' id='btnSettings'>Accept</a>
+					  <a class='button' id='btnBack'>Back</a>	
+					</div>
+			 </section>
+		</article>
 		
 		<!-- Templates -->
 		<script id="message-template" type="text/x-handlebars-template">
