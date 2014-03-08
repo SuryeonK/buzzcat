@@ -64,21 +64,25 @@ li.comp>.msg>.bubble{
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 }
-li.comp.mine>.msg>.bubble{
+li.message.comp.mine>.msg>.bubble{
 	float: right;
 	text-align: right;
     margin-right: 30px;
 }
-li.comp>.msg>.bubble>.author{
+li.message.comp>.msg>.bubble>.author{
 	font-weight: bold;
 }
-li.comp.mine>.msg>.bubble>.author{ display: none; }
-li.comp>aside>img{
+li.message.comp.mine>.msg>.bubble>.author{ display: none; }
+li.message.comp>aside{
+	box-align: start;
+	-webkit-box-align: start;
+}
+li.message.comp>aside>img{
 	border-radius: 50%;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 }
-li.comp>.msg>.bubble:after 
+li.message.comp>.msg>.bubble:after 
 {
 	content: "";
 	position: absolute;
@@ -125,4 +129,16 @@ li.comp.mine>.msg>.bubble:before{ display: none; }
 }
 article>section{
 	box-sizing: border-box;
+}
+#chat_view>section{
+	padding-bottom: 0;
+}
+article+.toolbar{
+	display: none !important;
+}
+article.current+.toolbar{
+	display: inherit !important;
+}
+article+.toolbar.chatbar{
+	height: auto;
 }
