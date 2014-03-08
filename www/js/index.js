@@ -1,12 +1,44 @@
 
+
+// Chat view controller
+function ChatView(app, element){
+    this.app = app;
+    this.element = element;
+}
+ChatView.prototype.sendMessage = function(){
+    // Get data from form
+    
+    // HTML add markup
+    
+    // Send message to the server
+    this.app.sendMessage(txt, function(){
+        // Success
+    }, function(){
+        // Fail
+    });
+}
+
 // Main application
-var app = {    
+var app = {
+    sendMessage: function(txt, success, fail){
+        // this.location_id
+        // this.my_profile_id
+        // txt
+        // AJAX
+    },
+    
     // Create a profile given the data
     createProfile: function(profile){
+        // Prevent the user from creating a new profile if he already has one
         if(this.my_profile || localStorage.my_profile_id){
             throw 'Profile already exists';
         }
         var col = this.db.col('profiles');
+        // Generate some internal password for the user
+        profile.key = '';
+        for(var i=0; i<4; i++) profile.key += (Math.random()+1).toString(36).substring(2);
+        
+        // Save
         localStorage.my_profile_id = col.insert(profile);
         this.my_profile = profile;
         // TODO: Send AJAX
@@ -19,5 +51,13 @@ var app = {
         this.db = con.db('buzzCat');
         
         // Show view depending on status
+        this.initializeViews();
+        
+        // Tests
+        this.chatView.sendMessage('aaaa');
+    },
+    
+    initializeViews: function(){
+        this.chatView = ChatView(this, document.getElementById('chat_view'));
     }
 };
