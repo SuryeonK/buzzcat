@@ -13,106 +13,60 @@
         <title>BuzzCat</title>
     </head>
     <body>
-        <nav class="previous">
-            <h1>BuzzCat</h1>
-        </nav>
-		
         <nav class="current">
+            <a class='button back'>Back</a>
             <h1>Chat</h1>
+            <div class='horizontal'>
+                <div class='segmented'>
+                    <!--<a class='nav selected' style="display: none;">Main</a>-->
+                    <a class='button' href="index.html">First Page</a>
+                    <a class='button' href="settings.html">Settings</a>
+                    <a class='button' href="around.html">People Around</a>
+                </div>
+            </div>
         </nav>
 		<article id='chat_view' class='current'>
-			  <div class='horizontal'>
-				<div class='segmented'>
-				  <!--<a class='nav selected' style="display: none;">Main</a>-->
-				  <a class='button' href="index.html">First Page</a>
-				  <a class='button' href="settings.html">Settings</a>
-				  <a class='button' href="around.html">People Around</a>
-				</div>
-			  </div>
 			<section>  
-			  <div class="chatroom" style="height:100%;width:100%">
-			  <!-- replace into templates at the bottom
-				<div class="message-mine" style="background-color:#FFD700;width:100%;float:right">
-					<div id="my_saying"; style="height:100%;width:85%;background-color:#FFCCFF;float:left">
-						나나나<br>
-						나나나<br>
-						나나나<br>
-						나나나<br>
-					</div>
-					<div style="height:80%;width:10%;background:blue;float:right">
-						<img src="./img/logo.png" alt="my_profile">
-							<div id="send_time" style="background:orange;float:left">
-								12:17 AM
-							</div>
-					</div>
-				</div>
-				
-				<div class="message-others" style="background-color:#FFCCFF;width:100%;float:left">
-					<div style="height:80%;width:10%;background:blue;float:left"> 	
-						<img src="./img/logo.png" alt="others_profile">
-						<div id="send_time" style="background:orange;float:right">
-							12:17 AM
-						</div>
-					</div>
-					<div style="height:100%;width:85%;background-color:#CC99FF;float:left">
-						<div id="others_name" style="background:green">
-							Noma
-						</div>
-						<div id="others_saying">
-							너너너너너<br>
-							너너너너너<br>
-							너너너너너<br>
-							너너너너너<br>
-						</div>
-					</div>
-				</div>
-			  </div>
-			-->
+			  <ul class="chatroom list"></div>
 			</section>
 		</article>
 		<div class="toolbar current">
-			<a class='button' href="javascript:void(null)">Options</a>
-			<div class="form">
-				<textarea id="message" style="width:70%; height:20%; overflow:visible"></textarea>
-				<button class="button messageSendButton">Send</button>
+			<div class="form grid">
+			    <a class="button flex-1" href="javascript:void(null)">Options</a>
+				<textarea id="message flex-8"></textarea>
+				<button class="button flex-1 messageSendButton">Send</button>
 			</div>
 		</div>
 
 		
 		<!-- My Message Templates -->
 		<script id="my-message-template" type="text/x-handlebars-template">
-			<div class="my-message-mine" style="background-color:#FFD700;width:100%;float:right;margin-bottom:15px">
-				<div id="my_saying"; style="height:100%;width:55%;background-color:#FFCCFF;float:left;margin-left:30%;margin-top:1%;margin-bottom:1%;text-align:right;word-break:break-all">
-					{{text}}
+			<li class="message mine comp">
+			    <div class="msg">
+				    <div class="bubble">
+				        {{text}}
+				        <aside>{{time}}</aside>
+				    </div>
 				</div>
-				<div style="height:80%;width:7%;margin-top:3%;margin-bottom:3%;float:right;background-color:red">
+				<aside>
 					<img src="./img/profile_picture.png" alt="my_profile">
-						<div id="send_time" style="background:orange;float:bottom">
-							{{time}}
-						</div>
-				</div>
-			</div>
+				</aside>
+			</li>
 		</script>
 		
 		<!-- Others Message Templates -->
 		<script id="others-message-template" type="text/x-handlebars-template">
-			<div class="message-others" style="background-color:#FFCCFF;width:100%;float:left;margin-bottom:15px">
-				<div style="height:80%;width:10%;background:blue;float:left"> 	
-					<img src="./img/logo.png" alt="others_profile">
-					<div id="send_time" style="background:orange;float:right">
-						{{time}}
-					</div>
+			<li class="message others comp">
+			    <div class="msg">
+				    <div class="bubble">
+				        {{text}}
+				        <aside>{{time}}</aside>
+				    </div>
 				</div>
-				<div style="height:100%;width:85%;background-color:#CC99FF;float:left">
-					<div id="others_name" style="background:green">
-						{{name}}
-					</div>
-					<div id="others_saying">
-						{{text}}
-					</div>
-				</div>
-			</div>
-		  </div>
+				<aside>
+					<img src="./img/profile_picture.png" alt="my_profile">
+				</aside>
+		  </li>
 		</script>
 		
 		<!-- Scripts -->
