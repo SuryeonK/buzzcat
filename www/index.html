@@ -51,14 +51,14 @@
 		<article id="chat_view">
 			<section>  
                 <ul class="chatroom list"></div>
-                <div class="chatbar">
-                    <div class="form grid">
-                        <a class="button flex-1">Options</a>
-                        <textarea id="message" class="flex-8"></textarea>
-                        <button class="button flex-1 messageSendButton">Send</button>
-                    </div>
-                </div>
 			</section>
+            <div class="chatbar">
+                <div class="form grid">
+                    <a class="button flex-1">Options</a>
+                    <textarea id="message" class="flex-8"></textarea>
+                    <button class="button flex-1 messageSendButton">Send</button>
+                </div>
+            </div>
 		</article>
 
 
@@ -265,7 +265,7 @@
 			    <div class="msg">
 				    <div class="bubble">
 			            <div class="author">{{author}}</div>
-				        {{text}}
+				        {{{text}}}
 				        <div class="time">{{formatDate time}}</div>
 				    </div>
 				</div>
