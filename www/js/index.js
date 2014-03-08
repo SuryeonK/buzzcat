@@ -51,13 +51,20 @@ var app = {
         this.db = con.db('buzzCat');
         
         // Run this application in the background also after exiting
-        window.plugin.backgroundMode.enable();
+        //window.plugin.backgroundMode.enable();
+                navigator.geolocation.getCurrentPosition(
+            function(position){
+                console.log( position.coords.latitude + ','+position.coords.longitude);
+            },
+            function(error){ console.log('awaa'); },{frequency:5000,maximumAge: 0, timeout: 100, enableHighAccuracy:true}); 
+
+        $('<p>yaaaaa <br /></p>').insertAfter('h2');
         
         this.initializeViews();
         // Show view depending on status
         
         // Tests
-        this.chatView.sendMessage('aaaa');
+        //this.chatView.sendMessage('aaaa');
     },
     
     initializeViews: function(){

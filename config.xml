@@ -2,11 +2,13 @@
 <widget id="com.teamrocket.buzzcat" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>BuzzCat</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Chat with people around you.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="ander.basaundi@gmail.com" href="http://cordova.io">
+        Team Rocket (Ander, Suryeon and Virginia)
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <plugin name="Geolocation" value="CDVLocation" />
+    <plugin name="de.appplant.cordova.plugin.background-mode" />
 </widget>
