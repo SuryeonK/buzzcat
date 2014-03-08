@@ -81,3 +81,10 @@ li.comp>.msg>.bubble:after
 	width: 0;
 	z-index: 1;
 }
+.form.grid{
+	width: 100%;
+}
+.toolbar.chat{
+	height: auto;
+	max-height: 6em;
+}
