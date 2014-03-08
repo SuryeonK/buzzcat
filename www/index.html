@@ -52,14 +52,30 @@
                 <ul class="chatroom list"></div>
 			</section>
 		</article>
-        <div class="toolbar chatbar">
-            <div class="form grid">
-				<a class='button show-popover' id="showPopover" href="javascript:void(null)">Emoticons</a>
+		
+		<div class="toolbar chatbar">
+			<div class="form grid">
+				<a class='button' id="showEmoticons" href="javascript:void(null)">Emoticons</a>
 				<textarea id="message" class="flex-8"></textarea>
-                <button class="button flex-1 messageSendButton">Send</button>
+				<button class="button flex-1 messageSendButton">Send</button>
 			</div>
-        </div>
-			
+			<div id="emoticons">
+				<div id="inside_emoticons">
+				<image data-symbol=":)" src="./img/emoticons/icon_smile.png"></image>
+				<image data-symbol=":D" src="./img/emoticons/icon_biggrin.png"></image>
+				<image data-symbol=":S" src="./img/emoticons/icon_confused.png"></image>
+				<image data-symbol="B)" src="./img/emoticons/icon_cool.png"></image>
+				<image data-symbol="<:0" src="./img/emoticons/icon_eek.png"></image>
+				<image data-symbol=">;(" src="./img/emoticons/icon_mad.png"></image>
+				<image data-symbol=":P" src="./img/emoticons/icon_neutral.png"></image>
+				<image data-symbol=":|" src="./img/emoticons/icon_razz.png"></image>
+				<image data-symbol=":(" src="./img/emoticons/icon_sad.png"></image>
+				<image data-symbol=">:0" src="./img/emoticons/icon_surprised.png"></image>
+				<image data-symbol=";)" src="./img/emoticons/icon_wink.png"></image>
+				</div>
+			</div>
+		</div>
+		
         <nav>Map</nav>
         <article id="map_view">
             <section id="map"></section>
