@@ -42,9 +42,9 @@
             <div class='horizontal'>
                 <div class='segmented'>
                     <!--<a class='nav selected' style="display: none;">Main</a>-->
-                    <a class='button' href="index.html">First Page</a>
-                    <a class='button' href="settings.html">Settings</a>
-                    <a class='button' href="around.html">People Around</a>
+                    <a class='button' data-goto="welcome_view">First Page</a>
+                    <a class='button' data-goto="settings_view">Settings</a>
+                    <a class='button' data-goto="map_view">People Around</a>
                 </div>
             </div>
         </nav>
@@ -73,14 +73,14 @@
 				<div class='horizontal'  style="float: left;">
 					<div class='segmented'>
 					  <!--<a class='button selected' style="display: none;">Main</a>-->
-					  <a class='button' href="welcome.html">Main Window</a>
-					  <a class='button' href="around.html">People Around</a>
+					  <a class='button' data-goto="welcome_view">Main Window</a>
+					  <a class='button' data-goto="map_view">People Around</a>
 					</div>
 				</div>
 				<br /><br /><br />
 				<div id='setting1' class="list">
 					<ul class="list">
-						<li class='comp' onclick="location.href = 'profile.html'"><div><h4>Profile </h4>
+						<li class='comp' data-goto="profile_view"><div><h4>Profile </h4>
 						<br />Modify your account information</div></li>
 					</ul>
 					<ul class='list'>	
@@ -88,7 +88,7 @@
 						<br />Modify your preferences to join chats</div></li>
 					</ul>
 					<ul class='list'>	
-						<li class='comp' onclick="location.href = 'settings3.html'"><div><h4>Notifications</h4>
+						<li class='comp' data-goto="notifications_view"><div><h4>Notifications</h4>
 						<br />Modify notification settings</div></li>
 					</ul>					
 				</div>
@@ -102,8 +102,8 @@
 				<div class='horizontal'  style="float: left;">
 					<div class='segmented'>
 					  <!--<a class='button selected' style="display: none;">Main</a>-->
-					  <a class='button' href="settings.html">Settings</a>
-					  <a class='button' href="around.html">People Around</a>
+					  <a class='button' data-goto="settings_menu_view">Settings</a>
+					  <a class='button' data-goto="map_view">People Around</a>
 					</div>
 				</div>
 				<br /><br /><br />
@@ -155,8 +155,8 @@
 				<div class='horizontal'  style="float: left;">
 					<div class='segmented'>
 					  <!--<a class='button selected' style="display: none;">Main</a>-->
-					  <a class='button' href="settings.html">Settings</a>
-					  <a class='button' href="around.html">People Around</a>
+					  <a class='button' data-goto="settings.view">Settings</a>
+					  <a class='button' data-goto="map_view">People Around</a>
 					</div>
 				</div>
 				<br /><br /><br />
@@ -215,9 +215,10 @@
 			<section>
 				<div class='horizontal'  style="float: left;">
 					<div class='segmented'>
-					  <!--<a class='button selected' style="display: none;">Main</a>-->
-					  <a class='button' href="settings.html">Settings</a>
-					  <a class='button' href="around.html">People Around</a>
+						<!--<a class='button selected' style="display: none;">Main</a>-->
+						<a class='button' data-goto="settings_view">Settings</a>
+						<a class='button' data-goto="map_view">People Around</a>
+						<a class='button' data-goto="chat_view">Chat</a>
 					</div>
 				</div>
 				<br /><br /><br />
