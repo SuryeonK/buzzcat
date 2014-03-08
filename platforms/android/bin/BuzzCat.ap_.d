@@ -1,0 +1,25 @@
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/bin/BuzzCat.ap_ \
+ : /home/ander/Dropbox/APPATHON/buzzcat/platforms/android/res/drawable-ldpi/icon.png \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/res/drawable/icon.png \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/res/drawable-mdpi/icon.png \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/res/values/strings.xml \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/res/drawable-xhdpi/icon.png \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/res/drawable-hdpi/icon.png \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/res/xml/config.xml \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/bin/res/drawable-ldpi/icon.png \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/bin/res/drawable/icon.png \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/bin/res/drawable-mdpi/icon.png \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/bin/res/drawable-xhdpi/icon.png \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/bin/res/drawable-hdpi/icon.png \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/assets/www \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/assets/www/cordova_plugins.js \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/assets/www/img \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/assets/www/cordova.js \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/assets/www/css \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/assets/www/js \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/assets/www/index.html \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/assets/www/img/logo.png \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/assets/www/css/index.css \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/assets/www/js/index.js \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/assets/www/js/vendor \
+/home/ander/Dropbox/APPATHON/buzzcat/platforms/android/bin/AndroidManifest.xml \
