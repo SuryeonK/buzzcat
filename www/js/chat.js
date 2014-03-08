@@ -4,10 +4,14 @@
 function ChatView(app, element){
     this.app = app;
     this.element = element;
-	this.toolbar = $(element).find('.chatbar');
+	this.toolbar = $(element).next().get(0);
 	// Templates
 	this.msg_template = Handlebars.compile($('#message-template').html());
 	// Bind events
+	$(this.toolbar).find('textarea').on('keyup', function(){
+	    this.style.height = "";
+	    this.style.height = Math.min(this.scrollHeight, 150) + "px";
+	});
 	$(this.toolbar).find('.messageSendButton').on( "click", $.proxy( this.sendMessage, this));
 }
 ChatView.prototype.sendMessage = function(){
@@ -30,6 +34,7 @@ ChatView.prototype.sendMessage = function(){
 			author: 'me',
 			mine: true
 		}));
+		$(this.element).scrollTop(this.element.scrollHeight);
 	}
 	
     // Send message to the server

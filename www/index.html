@@ -52,14 +52,14 @@
 			<section>  
                 <ul class="chatroom list"></div>
 			</section>
-            <div class="chatbar">
-                <div class="form grid">
-                    <a class="button flex-1">Options</a>
-                    <textarea id="message" class="flex-8"></textarea>
-                    <button class="button flex-1 messageSendButton">Send</button>
-                </div>
-            </div>
 		</article>
+        <div class="toolbar chatbar">
+            <div class="form grid">
+                <a class="button flex-1">Options</a>
+                <textarea id="message" class="flex-8"></textarea>
+                <button class="button flex-1 messageSendButton">Send</button>
+            </div>
+        </div>
 
 
         <nav>Map</nav>
@@ -266,7 +266,7 @@
 			    <div class="msg">
 				    <div class="bubble">
 			            <div class="author">{{author}}</div>
-				        {{{text}}}
+				        {{breaklines text}}
 				        <div class="time">{{formatDate time}}</div>
 				    </div>
 				</div>

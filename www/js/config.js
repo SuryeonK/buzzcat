@@ -19,6 +19,12 @@
 	    }
 	    return hour + ":" + min + " " + mid;
     });
+    
+    Handlebars.registerHelper('breaklines', function(text) {
+        text = Handlebars.Utils.escapeExpression(text);
+        text = text.replace(/(\r\n|\n|\r)/gm, '<br>');
+        return new Handlebars.SafeString(text);
+    });
 
     $('.button').on('click', function(){
         if(!$(this).data('goto')) return;
