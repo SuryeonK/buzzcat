@@ -32,7 +32,6 @@ var app = {
             time: new Date()
         };
         // this.location_id
-        // AJAX
         this.POST('/chats/{{location_id}}', msg, success, fail);
     },
     
@@ -50,7 +49,7 @@ var app = {
         // Save
         localStorage.my_profile_id = col.insert(profile);
         this.my_profile = profile;
-        // TODO: Send AJAX
+        this.POST('/profiles', profile, function(){}, function(){});
     },
     
     // Application Constructor
@@ -59,11 +58,18 @@ var app = {
         var con = new Chongo.Connection(localStorage);
         this.db = con.db('buzzCat');
         
+        this.my_position = {lat: 999, lon: 999};
+        
         // Run this application in the background also after exiting
         //window.plugin.backgroundMode.enable();
         
         this.initializeViews();
         // Show view depending on status
+        navigator.geolocation.watchPosition(
+            $.proxy( this.newPosition, this),
+            $.proxy( this.noPosition, this),
+            {frequency: 5000, maximumAge: 60000, timeout: 1000}
+        ); 
         
         // Tests
         //this.chat_view.sendMessage('aaaa');
@@ -71,5 +77,23 @@ var app = {
     
     initializeViews: function(){
         this.chat_view = new ChatView(this, document.getElementById('chat_view'));
+    },
+    
+    noPosition: function(error){
+        console.error('ERROR(' + error.code + '): ' + error.message);
+    },
+    
+    newPosition: function(position){
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+        if(geo.distance(lat, lon, this.my_position.lat, this.my_position.lon) > 5){ // Moved more than 5 meters
+            this.my_position = {lat: lat, lon: lon};
+            var self = this;
+            
+            $.get('http://open.mapquestapi.com/nominatim/v1/reverse.php?format=json&lat='+lat+'&lon='+lon, function(data){
+                self.location_id = data.place_id;
+                self.location_name = data.display_name.split(',')[0];
+            });
+        }
     }
 };
