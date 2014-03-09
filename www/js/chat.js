@@ -21,12 +21,10 @@ function ChatView(app, element){
 		else {
 			$('#emoticons').slideUp("slow");
 			isOpenEmoticonBar = false;
-		}	
+		}
 	});
-	
 	$('#emoticons').on('click', 'img', function(){
-		console.log($(this).data('symbol'));
-		$('#message').append($(this).data('symbol'));
+			$('#message').val($('#message').val()+' '+$(this).data('symbol'));
 	});
 }
 ChatView.prototype.sendMessage = function(){
