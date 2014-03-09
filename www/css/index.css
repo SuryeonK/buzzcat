@@ -164,8 +164,7 @@ article+.toolbar.chatbar{
 #emoticons{
 	display: none;
 	height: 3em;
-	background: beige;
-	}
+}
 
 #inside_emoticons {
 	vertical-align: middle;

@@ -35,7 +35,7 @@ var app = {
         // this.location_id
         var self = this;
         this.POST('/chats/'+this.location_id+'/messages', msg, function(data){
-            self.last_message = data;
+            self.last_message = data.$oid;
             success(data);
             }, fail);
     },
@@ -107,7 +107,7 @@ var app = {
             return;
         }
         var query = (this.last_message ? ('?from_id='+this.last_message) : '');
-        this.location_id = '2471788786'; // FIXME
+        //this.location_id = '2471788786'; // FIXME
         this.GET('/chats/' + this.location_id + '/messages' + query, function(data){
             if(data) for (var i=0; i < data.length; ++i){
                 console.log('Got ' + data.length + ' messages!');
