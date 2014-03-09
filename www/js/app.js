@@ -3,16 +3,17 @@
 var app = {
     baseURL: 'http://buzzcat-basaundi.rhcloud.com/api',
     REQUEST: function(type, url, data, success, fail){
-        $.ajax({
+        var ops = {
             type: type,
             contentType: 'application/json',
-            data: JSON.stringify(data),
             dataType: 'json',
             url: this.baseURL + url,
-        }).done(success).fail(fail);
+        };
+        if(data) ops.data = JSON.stringify(data);
+        $.ajax(ops).done(success).fail(fail);
     },
     GET: function(url, success, fail){
-        this.REQUEST('GET', url, data, success, fail);
+        this.REQUEST('GET', url, null, success, fail);
     },
     POST: function(url, data, success, fail){
         this.REQUEST('POST', url, data, success, fail);
@@ -32,7 +33,7 @@ var app = {
             time: new Date()
         };
         // this.location_id
-        this.POST('/chats/{{location_id}}', msg, success, fail);
+        this.POST('/chats/'+this.location_id+'/messages', msg, success, fail);
     },
     
     // Create a profile given the data
@@ -79,6 +80,27 @@ var app = {
             $.proxy( this.noPosition, this),
             {frequency: 5000, maximumAge: 60000, timeout: 1000}
         );
+        // Watch messages
+        setTimeout($.proxy(this.pollMessages, this), 0);
+        $(document).on('LOCATION_READY', $.proxy(this.joinChannel, this));
+    },
+    
+    joinChannel: function(){
+        this.POST('/chats/'+this.location_id+'/users',
+                    {profile_id: this.my_profile_id},
+                    function(){}, function(){});
+    },
+    
+    pollMessages: function(){
+        var self = this;
+        this.GET('/chats/' + this.location_id + '/messages', function(data){
+            for (var i=0; i < data.length; ++i){
+                $(document).trigger('NEW_MESSAGE', data[i]);
+            }
+            setTimeout($.proxy(self.pollMessages, self), 1000);
+        }, function(){
+            setTimeout($.proxy(self.pollMessages, self), 5000);
+        });
     },
     
     initializeViews: function(){
@@ -103,6 +125,7 @@ var app = {
             $.get('http://open.mapquestapi.com/nominatim/v1/reverse.php?format=json&lat='+lat+'&lon='+lon, function(data){
                 self.location_id = data.place_id;
                 self.location_name = data.display_name.split(',')[0];
+                $(document).trigger('LOCATION_READY');
             });
         }
     }
