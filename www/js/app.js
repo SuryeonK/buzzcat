@@ -106,7 +106,7 @@ var app = {
             setTimeout($.proxy(self.pollMessages, self), 10000);
             return;
         }
-        var query = (this.last_message ? ('?from_id='+this.last_message) : '');
+        var query = (this.last_message ? ('?from_id='+this.last_message) : '?from_id=999999999999');
         //this.location_id = '2471788786'; // FIXME
         this.GET('/chats/' + this.location_id + '/messages' + query, function(data){
             if(data) for (var i=0; i < data.length; ++i){
@@ -140,9 +140,11 @@ var app = {
             var self = this;
             
             $.get('http://open.mapquestapi.com/nominatim/v1/reverse.php?format=json&lat='+lat+'&lon='+lon, function(data){
-                self.location_id = data.place_id;
-                self.location_name = data.display_name.split(',')[0];
-                $(document).trigger('LOCATION_READY');
+                if(self.location_id != data.place_id){
+                    self.location_id = data.place_id;
+                    self.location_name = data.display_name.split(',')[0];
+                    $(document).trigger('LOCATION_READY');
+                }
             });
         }
     }

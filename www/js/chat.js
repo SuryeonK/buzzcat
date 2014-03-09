@@ -65,4 +65,7 @@ ChatView.prototype.receiveMessage = function(msg) {
 	var chatroom = $(this.element).find('.chatroom');
 	chatroom.append(this.msg_template(msg));
 	$(this.element).scrollTop(this.element.scrollHeight);
+	
+	navigator.notification.vibrate(1000);
+	navigator.notification.beep(1);
 }
