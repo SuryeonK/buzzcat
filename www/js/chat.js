@@ -6,6 +6,7 @@ function ChatView(app, element){
 	// Templates
 	this.msg_template = Handlebars.compile($('#message-template').html());
 	// Bind events
+	$(document).on('NEW_MESSAGE', $.proxy( this.receiveMessage, this));
 	$(this.toolbar).find('textarea').on('keyup', function(){
 	    this.style.height = "";
 	    this.style.height = Math.min(this.scrollHeight, 150) + "px";
@@ -59,10 +60,8 @@ ChatView.prototype.sendMessage = function(){
         // Fail
     });
 }
-ChatView.prototype.receiveMessage = function() {
-	// Get others' text from server
-	
-	
-	// HTML add markup
-	var chatroom = $(this.element).find('.chatroom');
+ChatView.prototype.receiveMessage = function(msg) {
+    msg.mine = false;
+	chatroom.append(this.msg_template(msg));
+	$(this.element).scrollTop(this.element.scrollHeight);
 }

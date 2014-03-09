@@ -9,7 +9,7 @@ function MapView(app, element){
 	
 	this.app.GET("/chats/" + this.app.location_id + "/users", function(data){
         self.users = data.length;
-		this.marker.bindPopup("You are in " + this.app.location_name + " with " + this.users + " more people").openPopup();
+		self.marker.bindPopup("You are in " + self.app.location_name + " with " + self.users + " more people").openPopup();
     });
 	
 	// add an OpenStreetMap tile layer

@@ -66,6 +66,8 @@ var app = {
         this.db = con.db('buzzCat');
         
         this.my_position = {lat: 999, lon: 999};
+        this.location_id = null;
+        this.location_name = null;
         
         // Run this application in the background also after exiting
         //window.plugin.backgroundMode.enable();
@@ -93,8 +95,12 @@ var app = {
     
     pollMessages: function(){
         var self = this;
+        if(!this.location_id){
+            setTimeout($.proxy(self.pollMessages, self), 10000);
+            return;
+        }
         this.GET('/chats/' + this.location_id + '/messages', function(data){
-            for (var i=0; i < data.length; ++i){
+            if(data) for (var i=0; i < data.length; ++i){
                 $(document).trigger('NEW_MESSAGE', data[i]);
             }
             setTimeout($.proxy(self.pollMessages, self), 1000);
