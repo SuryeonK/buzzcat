@@ -33,7 +33,11 @@ var app = {
             time: new Date()
         };
         // this.location_id
-        this.POST('/chats/'+this.location_id+'/messages', msg, success, fail);
+        var self = this;
+        this.POST('/chats/'+this.location_id+'/messages', msg, function(data){
+            self.last_message = data;
+            success(data);
+            }, fail);
     },
     
     // Create a profile given the data
@@ -68,6 +72,7 @@ var app = {
         this.my_position = {lat: 999, lon: 999};
         this.location_id = null;
         this.location_name = null;
+        this.last_message = null;
         
         // Run this application in the background also after exiting
         //window.plugin.backgroundMode.enable();
@@ -88,6 +93,8 @@ var app = {
     },
     
     joinChannel: function(){
+        if(!this.my_profile_id) return;
+        console.log(this.my_profile_id);
         this.POST('/chats/'+this.location_id+'/users',
                     {profile_id: this.my_profile_id},
                     function(){}, function(){});
@@ -99,9 +106,13 @@ var app = {
             setTimeout($.proxy(self.pollMessages, self), 10000);
             return;
         }
-        this.GET('/chats/' + this.location_id + '/messages', function(data){
+        var query = (this.last_message ? ('?from_id='+this.last_message) : '');
+        this.location_id = '2471788786'; // FIXME
+        this.GET('/chats/' + this.location_id + '/messages' + query, function(data){
             if(data) for (var i=0; i < data.length; ++i){
-                $(document).trigger('NEW_MESSAGE', data[i]);
+                console.log('Got ' + data.length + ' messages!');
+                if(!self.last_message || (data[i]._id.$oid > self.last_message)) self.last_message = data[i]._id.$oid;
+                self.chat_view.receiveMessage(data[i]);
             }
             setTimeout($.proxy(self.pollMessages, self), 1000);
         }, function(){

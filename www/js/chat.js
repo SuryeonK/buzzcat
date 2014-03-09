@@ -6,7 +6,7 @@ function ChatView(app, element){
 	// Templates
 	this.msg_template = Handlebars.compile($('#message-template').html());
 	// Bind events
-	$(document).on('NEW_MESSAGE', $.proxy( this.receiveMessage, this));
+	$(document).bind('NEW_MESSAGE', $.proxy( this.receiveMessage, this));
 	$(this.toolbar).find('textarea').on('keyup', function(){
 	    this.style.height = "";
 	    this.style.height = Math.min(this.scrollHeight, 150) + "px";
@@ -39,13 +39,12 @@ ChatView.prototype.sendMessage = function(){
     textarea.get(0).style.height = '';
 	
     // HTML add markup
-	var chatroom = $(
-	this.element).find('.chatroom');
+	var chatroom = $(this.element).find('.chatroom');
 	// check whether txt is empty
 	if (txt.length > 0) {
 		chatroom.append(this.msg_template({
 			time: date,
-			text: txt,
+			content: txt,
 			author: 'me',
 			mine: true
 		}));
@@ -62,6 +61,8 @@ ChatView.prototype.sendMessage = function(){
 }
 ChatView.prototype.receiveMessage = function(msg) {
     msg.mine = false;
+    msg.time = new Date(msg.time);
+	var chatroom = $(this.element).find('.chatroom');
 	chatroom.append(this.msg_template(msg));
 	$(this.element).scrollTop(this.element.scrollHeight);
 }
