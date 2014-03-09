@@ -2,16 +2,27 @@
 function MapView(app, element){
     this.app = app;
     this.element = element;
+	
 	// create a map in the "map" div, set the view to a given place and zoom
-	var map = L.map('map').setView([51.505, -0.09], 13);
-
+	var map = L.map('map').setView([this.app.my_position.lat, this.app.my_position.lon], 13);
+	var self = this;
+	
+	this.app.GET("/chats/" + this.app.location_id + "/users", function(data){
+        self.users = data.length;
+		this.marker.bindPopup("You are in " + this.app.location_name + " with " + this.users + " more people").openPopup();
+    });
+	
 	// add an OpenStreetMap tile layer
 	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 	}).addTo(map);
 
 	// add a marker in the given location, attach some popup content to it and open the popup
-	L.marker([51.5, -0.09]).addTo(map)
-		.bindPopup('A pretty CSS3 popup. <br> Easily customizable.')
-		.openPopup();
+	var marker = L.marker([this.app.my_position.lat, this.app.my_position.lon]).addTo(map);	
+		
+	L.circle([this.app.my_position.lat, this.app.my_position.lon], 20, {
+		color: 'red',
+		fillColor: '#f03',
+		fillOpacity: 0.5
+	}).addTo(map);
 }

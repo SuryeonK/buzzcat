@@ -21,6 +21,24 @@ body {
     background-attachment:fixed;
 }
 
+.buzzCat a.button.back::after, .buzzCat a.button.backTo::after {
+	background: transparent url(../img/logo_h.png) no-repeat;
+	top: -6px;
+	right: -37px;
+	height: 40px;
+	width: 40px;
+}
+
+.buzzCat a.button.back{
+	margin-right: 42px;
+}
+
+.segmented a.button{
+	width:50px;
+	background:#ffffff;
+	border: none;
+}
+
 @keyframes fade {
     from { opacity: 1.0; }
     50% { opacity: 0.4; }
