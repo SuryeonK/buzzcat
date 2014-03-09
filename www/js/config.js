@@ -26,7 +26,7 @@
         return new Handlebars.SafeString(text);
     });
 
-    $('.button').on('click', function(){
+    $('.button, [data-goto], li.nav').on('click', function(){
         if(!$(this).data('goto')) return;
         $.UIGoToArticle($(this).data('goto'));
     });
